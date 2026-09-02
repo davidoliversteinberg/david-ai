@@ -32,14 +32,14 @@ over-proposing, because a missed commitment is invisible.
 Sections stay as they are, for board compatibility. The status token is the addition.
 
 ```markdown
-- [ ] **Reconcile design-playground token scale with Dan's agent-built UI** `@todo`
-  - source: Meeting · Virtual Design Teammates Sync #2 · 2026-08-20 · work
+- [ ] **Reconcile design-system-web token scale with Mira's agent-built UI** `@todo`
+  - source: Meeting · Design Sync · 2026-08-20 · work
   - added: 2026-08-21
-  - due: before Opticon
+  - due: 2026-09-04
 ```
 
-- **Title in bold**, imperative, specific enough to act on cold. "Follow up with Dan" is a bad
-  title; "Reconcile the token scale with Dan's agent-built UI" is a good one.
+- **Title in bold**, imperative, specific enough to act on cold. "Follow up with Mira" is a bad
+  title; "Reconcile the token scale with Mira's agent-built UI" is a good one.
 - **`source:`** — `<type> · <where> · <date> · <origin>`, and a link when there is one. This is what
   the board shows, and it's the difference between a task list and a pile of strings.
 - **`added:`** — when the plugin captured it, not when it was said.
@@ -67,8 +67,8 @@ decision, and six weeks later you'll want to know you made it.
 
 ```
 Found 4 commitments:
-  1. Reconcile the token scale with Dan — Design Sync, Aug 20 — work
-  2. Send the density spec to Priya by Thu — email, Aug 21 — work
+  1. Reconcile the token scale with Mira — Design Sync, Aug 20 — work
+  2. Send the density spec to Dan by Thu — email, Aug 21 — work
   3. Reply to the conference CFP — personal email, Aug 19 — personal
   4. [unclear] "we should look at the empty states sometime" — Design Sync — capture as Someday?
 

@@ -36,7 +36,7 @@ Skip:
 date: 2026-09-01
 status: decided
 surfaces: [density spec, type scale]
-people: [David Steinberg, Priya Raghavan, Dan Osei]
+people: [you, Dan Osei, Mira Kovač]
 origin: work
 ---
 

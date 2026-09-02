@@ -30,7 +30,7 @@ trust, and a task list that grows on its own stops being trusted quickly.
 ```
 7 proposed tasks from the last three evening runs.
 
-  1. Reconcile the token scale with Dan — Design Sync, Aug 20
+  1. Reconcile the token scale with Mira — Design Sync, Aug 20
      [a]dd  [s]omeday  [i]gnore  [d]elete
 ```
 

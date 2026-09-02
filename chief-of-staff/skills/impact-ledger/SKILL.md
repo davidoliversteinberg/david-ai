@@ -48,8 +48,8 @@ Append to `ledger/YYYY-Www.md`, one file per ISO week.
   [PR #482](<url>) · merged Sep 3
 
 ## Unblocked
-- **Maya Chen** — stuck on which token to use for inline links; she'd shipped `fg.success` in two
-  places. Answered in #design-system Sep 2, she shipped the fix same day. [thread](<url>)
+- **Maya Chen** — stuck on which token to use for inline links; they'd shipped `fg.success` in two
+  places. Answered in #design-system Sep 2, they shipped the fix same day. [thread](<url>)
 
 ## Influenced
 - **Density spec will ship behind a flag, not as a breaking change.** Argued in the Platform Sync
@@ -57,7 +57,7 @@ Append to `ledger/YYYY-Www.md`, one file per ISO week.
   `decisions/2026-09-01-density-flag.md`.
 
 ## Reach
-- Reviewed onboarding flow for the Growth team (not my area) at Priya's request — Sep 2.
+- Reviewed onboarding flow for the Growth team (not my area) at Dan's request — Sep 2.
 - Type scale doc cited by the Content team in their style guide update.
 ```
 

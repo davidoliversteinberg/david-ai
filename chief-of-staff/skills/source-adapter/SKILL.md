@@ -55,7 +55,7 @@ impact ledger quietly.
 | `notion`, `confluence`, `guru`, `coda` | docs | work |
 | `figma` | design | work |
 | `git`, `gh`, `github`, `gitlab` | code | work |
-| org-published (`org_*`, `directory_me`, anything with an org tree) | directory | work |
+| org-published (anything exposing an org tree or user search) | directory | work |
 
 Slack is genuinely ambiguous — plenty of people have a work Slack *and* a personal one. If Slack is
 the only chat source and origin is unset, ask once and write the answer to `PROFILE.md`.
@@ -67,6 +67,54 @@ length. Say what you skipped in one line at the end of the output:
 
 In an interactive session only, you may additionally surface a connector suggestion. Never do this
 in a scheduled run — nobody is there to click it.
+
+## Transcripts
+
+A sub-capability of `~~calendar`, and the one worth knowing the mechanics of because `meeting-digest`
+lives or dies on it. This is the other place product names are allowed.
+
+**Microsoft 365 / Teams.** Verified working 2026-09-02. The path is two hops, and the search result
+alone is not enough:
+
+1. `outlook_calendar_search` returns event metadata. It does **not** include the transcript field.
+2. `read_resource` on the event's `calendar:///events/{id}` URI returns the full event, which
+   includes `meetingTranscriptUrl` when a transcript exists.
+3. `read_resource` on that `meeting-transcript:///events/{token}` URI verbatim returns WEBVTT with
+   per-speaker attribution. The token is an opaque base64url encoding of the join URL — never
+   construct or edit it, pass it through exactly as given.
+
+For a recurring series, the URL carries `start` and `end` query params scoping it to one occurrence.
+Drop them and you get the most recent transcripts of the whole series, which is rarely what you want.
+
+Two consequences for callers: the transcript costs an extra `read_resource` per meeting, so resolve
+the day's events first and only fetch transcripts for meetings that matter. And absence of
+`meetingTranscriptUrl` means no transcript for *that occurrence* — it isn't a permissions failure,
+so degrade to the next tier rather than reporting an error.
+
+**Everything else.** Unverified. Treat as absent until probed, and record the answer in `PROFILE.md`
+so the next run doesn't re-probe.
+
+## Known capability limits
+
+Record verified answers in `PROFILE.md` under *Capabilities*. What's already known:
+
+| Capability | Source | Answer | Consequence |
+|------------|--------|--------|-------------|
+| Meeting transcripts | ms365 | **yes**, via the two-hop path above | `meeting-digest` runs at tier 1 |
+| Mail rules / blocked senders | ms365 | **no** — the resource URI whitelist has no rules scheme and no tool exposes them | `inbox-hygiene` is advisory for this source, permanently |
+| Sending mail or chat | ms365 | **no** — the connector exposes no send or draft tool | the plugin's never-send rule is enforced by the connector, not just by convention |
+
+That last row is worth stating plainly rather than treating as a gap. It means the guarantees in the
+README aren't only policy — for this source there is no code path to violate them.
+
+## Timezones
+
+Outlook returns `{dateTime, timeZone}` pairs where `dateTime` is wall-clock in the named zone. When
+the mailbox has no zone set it reports `UTC`, and a 13:00 UTC event is 09:00 for someone on Eastern.
+
+**Never present a raw `dateTime` without converting to the user's zone from `PROFILE.md`.** Getting
+this wrong shifts every meeting in the brief by a fixed offset, which reads as plausible and is
+therefore hard to notice.
 
 ## Origin tagging
 

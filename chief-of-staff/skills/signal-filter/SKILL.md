@@ -35,7 +35,7 @@ Rules are prose, not regexes. Match on **meaning and reason**, not wording.
 
 That rule should catch a seat request phrased any way at all, *and* a Figma billing notification
 about seat count, because the stated reason is "Tom handles seats." It should **not** catch a Figma
-outage notice, or Tom saying he's leaving. The reason in the rule is what tells you where the
+outage notice, or Tom saying they're leaving. The reason in the rule is what tells you where the
 boundary is — which is why every rule has to carry one.
 
 When a match is genuinely uncertain, surface the item and note the near-miss. False negatives are

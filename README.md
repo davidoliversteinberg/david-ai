@@ -122,13 +122,25 @@ launch.
 
 ## Connector notes
 
-Two things worth knowing before you rely on them, and both are tenant-dependent:
+Both of these are tenant-dependent, so treat the answers as "verified here, probe yours". Tested
+against Microsoft 365 on 2026-09-02:
 
-- **Meeting transcripts** — whether they're reachable depends on your Microsoft 365 tenant and
-  whether Teams transcription is on for your account. `meeting-digest` degrades gracefully
-  (transcript → surrounding chat → metadata only) and always says which tier it's on.
-- **Mail rules and blocked senders** — most mail connectors expose read, search and draft but not
-  rule creation. `inbox-hygiene` is designed to be useful either way, and probes on first run.
+- **Meeting transcripts — reachable.** Full WEBVTT with per-speaker attribution. The path is two
+  hops: the calendar search result doesn't carry the transcript field, so you read the event
+  resource to get `meetingTranscriptUrl`, then read that. `meeting-digest` still degrades gracefully
+  (transcript → surrounding chat → metadata only) and always says which tier it's on, because
+  transcription is per-meeting, not per-tenant.
+
+  Transcripts are also messier than they look — interleaved speaker channels put lines out of
+  chronological order, and product names get mangled badly enough to break topic matching. See
+  *Reading a transcript* in `meeting-digest` for the four failure modes worth knowing about.
+
+- **Mail rules and blocked senders — not reachable.** No tool exposes them and the resource URI
+  whitelist has no rules scheme. `inbox-hygiene` is advisory for this source, permanently. That was
+  always the design, so nothing changes; it's just no longer optional.
+
+- **Sending — not possible.** The connector exposes no send or draft tool at all. For this source
+  the never-send guarantee below isn't only policy: there's no code path to violate it.
 
 ## Prior art
 

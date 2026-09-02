@@ -93,7 +93,7 @@ surfaces: [<the specific things it touches>]
 
 The `surfaces` list is load-bearing. `collaboration-radar` intersects other people's activity
 against it, and `meeting-digest` uses it to decide what needs your attention. Write specific
-strings — "Optiaxiom type scale", not "design system".
+strings — "Foundry type scale", not "design system".
 
 ## Writing rules
 
@@ -103,7 +103,7 @@ strings — "Optiaxiom type scale", not "design system".
   people and projects are real and belong in memory; they're just filtered out of work-facing
   output.
 - **Link, don't duplicate.** `[[project-slug]]` between files.
-- **Cite.** A memory that says "Dan prefers X" is worth much more with "(said in Design Sync,
+- **Cite.** A memory that says "Mira prefers X" is worth much more with "(said in Design Sync,
   2026-08-20)" attached, because in three months you'll want to know whether it's still true.
 
 ## Updating

@@ -29,10 +29,36 @@ that cover most people. Any MCP server that fills the role works.
 Two roles have no server listed because they're usually published by your employer rather than
 installed by you:
 
-- **`~~directory`** — usually an internal MCP exposing an org tree (`get_org_tree`,
-  `users_search`, `directory_me`). Without it, `collaboration-radar` falls back to the people it
-  can see on your calendar and in your threads, which is narrower but still useful.
+- **`~~directory`** — usually an internal MCP exposing an org tree and a user search. Without it,
+  `collaboration-radar` falls back to the people it can see on your calendar and in your threads,
+  which is narrower but still useful. It has to say which mode it's in, every time.
 - **`~~design`** — Figma. Without it, `system-watchtower` scans code only.
+
+## Filling a role isn't all-or-nothing
+
+A source can fill a role and still not do everything the role implies. Two that matter, both
+verified against Microsoft 365 on 2026-09-02:
+
+- **Transcripts are a sub-capability of `~~calendar`.** M365 has them — full WEBVTT with speaker
+  attribution, reached via the event resource rather than the calendar search result. Other calendar
+  sources may not. `meeting-digest` degrades in three tiers and says which one it's on.
+- **Mail rules and blocked senders are a sub-capability of `~~email`, and M365 doesn't expose them.**
+  No tool, no resource URI. `inbox-hygiene` was already designed to be advisory; for this source it
+  is permanently so.
+
+Also worth knowing: the M365 connector exposes **no send or draft tool at all**. The plugin's
+never-send rule is policy everywhere else and a hard constraint here.
+
+Probe once, record the answer under *Capabilities* in `PROFILE.md`, and don't re-probe every run.
+
+## If your connectors are already configured at the app level
+
+The `.mcp.json` here declares servers for people who don't have them. If you're in an environment
+where the same connectors are already wired up as app-level connectors, both will load and you'll
+have two of each — duplicate tools, and possibly two auth prompts.
+
+If that's your situation, delete the duplicated entries from `.mcp.json` and keep the app-level
+ones. `PROFILE.md` refers to sources by role, so nothing downstream cares which layer provided them.
 
 ## A role can hold more than one source
 

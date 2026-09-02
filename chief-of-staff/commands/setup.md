@@ -61,7 +61,7 @@ Pick the closest template in `${CLAUDE_PLUGIN_ROOT}/templates/` as the starting 
 The most important question in setup, and the one to spend time on.
 
 ```
-What are you actually accountable for? Be specific — "the Optiaxiom type scale"
+What are you actually accountable for? Be specific — "the Foundry type scale"
 is matchable, "design system" isn't. Three to six of them.
 ```
 

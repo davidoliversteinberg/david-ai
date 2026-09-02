@@ -61,9 +61,9 @@ Last spoke: <date, or "no direct contact on record">
 
 Worked example:
 
-> **Dan Osei — design tokens**
-> He flagged that agent-built UI is hardcoding token values into skill files (Virtual Design
-> Teammates Sync #2, Aug 20). You own the token scale in design-playground and are mid-migration.
+> **Mira Kovač — design tokens**
+> They flagged that agent-built UI is hardcoding token values into skill files (Design Sync,
+> Aug 20). You own the token scale in design-system-web and are mid-migration.
 > Last spoke: Aug 12.
 > → Suggest a 25-minute sync before either of you goes further. Want me to draft the invite?
 
@@ -89,7 +89,7 @@ an active project, compare `last-interaction` against how much you need them:
 
 ```
 **Going stale**
-- **Priya Raghavan** — you need her sign-off for the density spec (blocking, due Sept 15).
+- **Dan Osei** — you need their sign-off for the density spec (blocking, due Sept 15).
   Last spoke Jul 24, seven weeks ago.
 ```
 

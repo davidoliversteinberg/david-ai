@@ -33,7 +33,7 @@ friend to your work address is still `work`.
 
 The things you're accountable for. `collaboration-radar` intersects other people's activity against
 this list, and `meeting-digest` uses it to rank what needs your attention. Be specific — "design
-system" is too broad to match on; "the Optiaxiom type scale" is matchable.
+system" is too broad to match on; "the Foundry type scale" is matchable.
 
 - <surface one>
 - <surface two>

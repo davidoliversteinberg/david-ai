@@ -70,7 +70,7 @@ The Two moves section is the whole point. Bad advice is abstract ("build more re
 the org"); good advice is a calendar entry.
 
 > **Get in front of the density decision.** Platform Sync is Tuesday, it's on the agenda, and the
-> last two spacing calls happened without you (`decisions/2026-08-18-*`, Aug 25 sync). Ask Priya for
+> last two spacing calls happened without you (`decisions/2026-08-18-*`, Aug 25 sync). Ask Dan for
 > ten minutes on the agenda.
 
 > **Write up the type scale rationale.** You've explained it verbally four times in six weeks
