@@ -35,7 +35,9 @@ your shorthand from your existing task list, and writes the rule files that ever
 | `/chief-of-staff:brief` | Today: what needs you, what's coming, what went quiet |
 | `/chief-of-staff:digest` | Catch up on a window — meetings, chat, email, ranked |
 | `/chief-of-staff:capture` | Pull commitments out of recent activity into the task list |
+| `/chief-of-staff:sweep` | Standing watch — read widely, record quietly, surface only what clears the bar |
 | `/chief-of-staff:radar` | Who else is on your surfaces, and who's going stale |
+| `/chief-of-staff:ux` | Prior art and options for a live design question, or help sequencing the work |
 | `/chief-of-staff:trends` | Design-system drift, then UX/UI worth stealing |
 | `/chief-of-staff:ledger` | Record this week's impact, or draft the promo case |
 | `/chief-of-staff:review` | Weekly: the record, then honest coaching |
@@ -50,7 +52,9 @@ rules. `signal-filter` decides what reaches you.
 
 **Awareness.** `meeting-digest` summarizes meetings, chat and email into a ranked *Needs your
 attention* list. `commitment-capture` turns "I'll get you that by Thursday" into a task that
-remembers where it came from.
+remembers where it came from. `ambient-sweep` is the standing watch: it reads the rooms and
+transcripts you don't have time for, records what it learns to memory, and stays silent unless
+something clears a bar you wrote down. A quiet week reports as one line, not a summary.
 
 **The IC-specific half.** `collaboration-radar` finds people working on your surfaces and suggests
 when to talk. `impact-ledger` keeps a cited weekly record of what you shipped, who you unblocked,
@@ -59,8 +63,9 @@ actually argued on. `system-watchtower` catches design-system drift. `decision-l
 which is the part that never survives.
 
 **Outward.** `inbox-hygiene` ranks noise and recommends action. `trend-radar` scans a pinned source
-list for things worth stealing. `coaching` compares where your time went against where you said it
-would go.
+list for things worth stealing. `design-advisor` is the other direction — you bring it a live open
+question and it brings back prior art, options and tradeoffs, plus help sequencing the week.
+`coaching` compares where your time went against where you said it would go.
 
 ## Portability
 
