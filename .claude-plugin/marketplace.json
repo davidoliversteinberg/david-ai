@@ -1,0 +1,14 @@
+{
+  "name": "david-ai",
+  "owner": {
+    "name": "David Steinberg",
+    "url": "https://github.com/davidoliversteinberg"
+  },
+  "plugins": [
+    {
+      "name": "chief-of-staff",
+      "source": "./chief-of-staff",
+      "description": "A chief of staff for a senior individual contributor. Digests meetings, chat and email across work and personal accounts; captures commitments; detects who else is working on your surface area; keeps a cited record of your impact; and watches your design system for drift."
+    }
+  ]
+}
