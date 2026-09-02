@@ -33,7 +33,8 @@ Staggered so they don't stack.
 | `cos-weekly-radar` | `0 9 * * 1` | Overlaps and stale relationships |
 | `cos-weekly-craft` | `0 9 * * 3` | System drift and trends |
 | `cos-weekly-review` | `0 16 * * 5` | Impact ledger draft and coaching |
-| `cos-monthly-hygiene` | `0 9 1 * *` | Inbox noise and memory consolidation |
+| `cos-monthly-mentor` | `0 9 1 * *` | Where the promotion case stands, and what's thin |
+| `cos-monthly-hygiene` | `0 9 2 * *` | Inbox noise and memory consolidation |
 | `cos-quarterly-okr` | `0 10 1 1,4,7,10 *` | Closes the quarter, preps the goal-setting session |
 | `cos-review-cycle-prep` | one-off `fireAt` | Rubric gaps, six weeks before a review window |
 
@@ -209,7 +210,33 @@ Substitute `<WORKSPACE>` with the absolute path everywhere below.
 >
 > Write to `<WORKSPACE>/reviews/YYYY-Www.md`.
 
-### cos-monthly-hygiene — `0 9 1 * *`
+### cos-monthly-mentor — `0 9 1 * *`
+
+> A mentor's read on the promotion case for the workspace at `<WORKSPACE>`. **Work origin only.**
+>
+> Read `<WORKSPACE>/ledger/projects.md`, every `<WORKSPACE>/ledger/` file from the last month, and
+> `<WORKSPACE>/memory/context/goals.md`.
+>
+> Report four things and nothing else. **Where the case stands** — arc by arc, one line each,
+> strengthening or static or at risk, each citing a ledger entry. **Thin spots** — claims with no
+> evidence behind them yet, named plainly. **Legibility gaps** — arcs nobody outside their own team
+> could describe, and the specific person who should be able to. **One or two moves** — a
+> conversation, a writeup, or an opportunity to take *or decline*, with the reason.
+>
+> Count spot wins (entries tagged `· spot`) for the month and say how many crossed a team boundary.
+> Density and spread is the signal; a single spot win is deniable.
+>
+> Rules. Cite the ledger on every claim about where they stand — "cross-team evidence is thin" is an
+> opinion, "cross-team evidence is two entries, both from August" is actionable. Never predict the
+> outcome of a review. If `<WORKSPACE>/memory/context/review-rubric.md` doesn't exist, say the rubric
+> mapping is guesswork — every run, not once. A month with no progress on the case reports as a month
+> with no progress; do not pad it with encouragement. Do not read HR or performance systems. Do not
+> write assessments of colleagues.
+>
+> Write to `<WORKSPACE>/reviews/YYYY-MM-mentor.md`. Propose updates to `ledger/projects.md` in that
+> file rather than editing the register directly — the user confirms.
+
+### cos-monthly-hygiene — `0 9 2 * *`
 
 > Monthly hygiene for the workspace at `<WORKSPACE>`.
 >

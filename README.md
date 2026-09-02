@@ -40,6 +40,7 @@ your shorthand from your existing task list, and writes the rule files that ever
 | `/chief-of-staff:ux` | Prior art and options for a live design question, or help sequencing the work |
 | `/chief-of-staff:trends` | Design-system drift, then UX/UI worth stealing |
 | `/chief-of-staff:ledger` | Record this week's impact, or draft the promo case |
+| `/chief-of-staff:mentor` | Where the promotion case stands, what's thin, what to take or decline |
 | `/chief-of-staff:review` | Weekly: the record, then honest coaching |
 | `/chief-of-staff:inbox` | Rank inbox noise, recommend what to do about each sender |
 | `/chief-of-staff:automate` | Put all of it on a schedule |
@@ -59,8 +60,14 @@ something clears a bar you wrote down. A quiet week reports as one line, not a s
 **The IC-specific half.** `collaboration-radar` finds people working on your surfaces and suggests
 when to talk. `impact-ledger` keeps a cited weekly record of what you shipped, who you unblocked,
 what you influenced and how far your reach extended — the four things a staff-level case is
-actually argued on. `system-watchtower` catches design-system drift. `decision-log` captures *why*,
-which is the part that never survives.
+actually argued on — and it separates **big wins** from **spot wins**, because the two are lost in
+different ways. A big win is a multi-month arc you'll remember; a spot win is the Tuesday afternoon
+you unstuck someone in a chat thread, and it's gone by Friday unless something catches it. The
+ambient sweep catches them. `career-mentor` runs the level above: the promotion as a campaign with
+arcs, an audience and a set of moves, including which opportunities to decline. It's honest about
+where its advice comes from — a small, mostly engineering-shaped literature — and it never predicts
+an outcome. `system-watchtower` catches design-system drift. `decision-log` captures *why*, which is
+the part that never survives.
 
 **Outward.** `inbox-hygiene` ranks noise and recommends action. `trend-radar` scans a pinned source
 list for things worth stealing. `design-advisor` is the other direction — you bring it a live open

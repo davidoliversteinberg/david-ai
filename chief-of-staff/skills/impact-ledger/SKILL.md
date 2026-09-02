@@ -36,6 +36,27 @@ influencing is the whole ballgame at staff level.
 **Reach** — teams and surfaces you touched beyond your own. Who consulted you. What you reviewed
 that wasn't yours. Where your work got adopted by someone you don't work with.
 
+## Big wins and spot wins
+
+Cutting across those four is a distinction worth keeping explicit, because the two are lost in
+different ways.
+
+A **big win** is a multi-month arc with a name. It is hard to forget and easy to overstate. Two to
+four a year.
+
+A **spot win** is a single moment — a question answered, a review catch, an argument that turned a
+decision. Easy to forget entirely, and collectively the whole evidence base for *Influenced* and
+*Reach*. Most of them happen in chat and are gone within the week.
+
+So they get recorded on different clocks. Big wins accumulate in the project register
+(`ledger/projects.md`, owned by [career-mentor](../career-mentor/SKILL.md)) as arcs. Spot wins get
+written into the weekly file **as they are seen** — [ambient-sweep](../ambient-sweep/SKILL.md)
+proposes them during its run rather than waiting for Friday. A spot win reconstructed from memory six
+weeks later has no citation, and an uncited entry is not an entry.
+
+Mark spot-win entries `· spot` so a roll-up can count them. Density and spread across teams is the
+signal; any individual one is deniable.
+
 ## Entry format
 
 Append to `ledger/YYYY-Www.md`, one file per ISO week.
@@ -49,7 +70,7 @@ Append to `ledger/YYYY-Www.md`, one file per ISO week.
 
 ## Unblocked
 - **Maya Chen** — stuck on which token to use for inline links; they'd shipped `fg.success` in two
-  places. Answered in #design-system Sep 2, they shipped the fix same day. [thread](<url>)
+  places. Answered in #design-system Sep 2, they shipped the fix same day. [thread](<url>) · spot
 
 ## Influenced
 - **Density spec will ship behind a flag, not as a breaking change.** Argued in the Platform Sync

@@ -63,6 +63,15 @@ This is the half that compounds, and it happens whether or not anything gets sur
   question it answers.
 - **Something the user did** → the impact ledger, via [impact-ledger](../impact-ledger/SKILL.md).
   Work done in chat is invisible to the tracker and is the most commonly lost evidence there is.
+  Specifically watch for **spot wins**: a question they answered that unstuck someone, a review catch,
+  an argument that turned a decision, prior art they handed over. These are the entries nobody
+  remembers to write down, they are the evidence base for *Influenced* and *Reach*, and the sweep is
+  the only thing positioned to catch them while the citation still exists. Propose them; the user
+  confirms, per the never-write-the-ledger-unattended rule.
+- **Movement on a tracked arc** → the matching section of `ledger/projects.md`, owned by
+  [career-mentor](../career-mentor/SKILL.md). Especially someone *outside the user's team* describing
+  or adopting one of their arcs — that is a legibility gain, and it is the hardest thing in the whole
+  case to evidence after the fact.
 
 Cite the source on every line written: who said it, where, when. An unattributed memory is a rumour
 the system will later repeat back with confidence.
@@ -72,7 +81,11 @@ the system will later repeat back with confidence.
 Surface only what clears the watch-list bar, plus anything matching an escalation rule. Beyond that,
 four kinds of thing are always worth surfacing:
 
-- **An opportunity** — someone asking for something the user is unusually well placed to give.
+- **An opportunity** — a gap between what's needed and who's claiming it. An unclaimed problem next
+  to a surface they own, a question they're the best-placed person to answer, or a decision forming
+  badly that they could redirect. See *Opportunities — and the ones to refuse* in
+  [career-mentor](../career-mentor/SKILL.md): flag whether it's worth taking, and say so when it
+  isn't. An opportunity surfaced without that judgement is just more work.
 - **A decision forming on a surface they own**, without them in the room.
 - **A constraint that invalidates work in progress** — a schema change, a platform limit, a
   sequencing decision made elsewhere.

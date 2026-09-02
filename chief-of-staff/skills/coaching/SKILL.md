@@ -10,6 +10,13 @@ Career advice for a senior IC, grounded in what actually happened rather than in
 Reads **both** origins. Where your time goes is a fact about your whole week, and advice built on
 only the work half will keep telling you to work more.
 
+**Scope, against the neighbouring skills.** This one owns *the week*: where the hours went versus
+where they were supposed to. [impact-ledger](../impact-ledger/SKILL.md) owns *the record*.
+[career-mentor](../career-mentor/SKILL.md) owns *the campaign* — the promotion as a multi-quarter
+arc. When a weekly observation is really a statement about the promotion case, note it in one line
+and hand it to the mentor rather than arguing it here; a weekly review that keeps relitigating the
+promotion stops being useful for the week.
+
 ## The IC frame
 
 Manager advice and IC advice diverge sharply above senior level, and generic career advice is
