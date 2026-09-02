@@ -80,6 +80,32 @@ Two URLs that were in the original file are **wrong** and are recorded here so n
 `gmail.mcp.claude.com` and `gcal.mcp.claude.com` do not resolve. Connect Gmail and Google Calendar
 as app-level connectors instead.
 
+## Performance-review systems
+
+There is deliberately no `~~hr` role, and `review --half` reads a hand-maintained
+`memory/context/review-rubric.md` instead of an API. Three reasons, in increasing order of
+importance.
+
+**Your SSO provider isn't a data source.** Okta, Entra, Ping and friends are the login wall in front
+of the HR system, not the HR system. There's nothing behind that door to read — the review content
+lives in SuccessFactors, Workday, Lattice or similar.
+
+**The HR system's API isn't yours to call.** SAP SuccessFactors does expose performance data over
+OData, and Workday has an equivalent. Both gate it behind a tenant-level OAuth client that an HRIS
+administrator provisions, scoped by an integration request. An individual employee cannot
+self-serve one, and shouldn't be able to — the same endpoint that returns your review returns other
+people's.
+
+**You don't want the review text anyway; you want the rubric.** This is the part worth internalising.
+The valuable artifact is the competency framework you're scored against — a page of stable text that
+changes once a year. Pasting it in once buys you the ability to file every week's evidence under the
+headings a reviewer will actually be reading. An API sync of last cycle's completed review would buy
+you a record of a conversation you were already in.
+
+Manual is not the fallback here. It's the better design, and it's also the one that doesn't put
+performance data — yours and, in review text, other people's words about you — through an AI tool
+before anyone has agreed that's acceptable.
+
 ## A role can hold more than one source
 
 This is the part that differs from most plugins. `~~email` is a *list*, not a single server, and

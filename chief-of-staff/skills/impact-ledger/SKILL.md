@@ -107,6 +107,24 @@ On request — "promo packet", "self-review", "brag doc", "what did I do this ha
    say so. Better to find out in a draft than in the review.
 6. Output to `reviews/<range>-impact.md`. Draft only, in the user's voice.
 
+## Mapping to your company's rubric
+
+The four categories above are how promotion cases are *argued*. They are almost never how a company
+*scores*. If `memory/context/review-rubric.md` exists, the roll-up regroups everything under the
+company's own competency names, in the company's own wording.
+
+Do not skip this as cosmetic. A reviewer works down the form in front of them, and evidence filed
+under a heading that isn't on that form reads as an empty row. The same year of work scores
+differently depending only on where it was filed.
+
+Two rules when regrouping:
+
+- **One piece of evidence can serve two rows**, and should, if it genuinely does. Say so rather than
+  splitting it.
+- **An empty row is the most useful output of the run.** Name it plainly. Six weeks before a review
+  window, an empty row is still something the user can go and fill; during the window it's just bad
+  news.
+
 ## Origin check
 
 Before writing anything: confirm every entry traces to a `work`-origin source. If an item's origin

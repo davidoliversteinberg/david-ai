@@ -33,6 +33,8 @@ Staggered so they don't stack.
 | `cos-weekly-craft` | `0 9 * * 3` | System drift and trends |
 | `cos-weekly-review` | `0 16 * * 5` | Impact ledger draft and coaching |
 | `cos-monthly-hygiene` | `0 9 1 * *` | Inbox noise and memory consolidation |
+| `cos-quarterly-okr` | `0 10 1 1,4,7,10 *` | Closes the quarter, preps the goal-setting session |
+| `cos-review-cycle-prep` | one-off `fireAt` | Rubric gaps, six weeks before a review window |
 
 Substitute `<WORKSPACE>` with the absolute path everywhere below.
 
@@ -187,6 +189,40 @@ Substitute `<WORKSPACE>` with the absolute path everywhere below.
 > what it caught. List people files with a `last-interaction` older than 90 days.
 >
 > Append the memory findings to the same report file. Ask no questions.
+
+### cos-quarterly-okr — `0 10 1 1,4,7,10 *`
+
+> Quarterly OKR session for the workspace at `<WORKSPACE>`. **This one is a prompt to book time, not
+> a report.** Goal-setting is a conversation; a scheduled run can't have it.
+>
+> Read `<WORKSPACE>/memory/context/goals.md` and every `<WORKSPACE>/ledger/` file from the quarter
+> just ended. For each goal in *This quarter*, state met / partly / not, with citations. List which
+> goals have no supporting ledger entries at all.
+>
+> Then write, to `<WORKSPACE>/reviews/YYYY-Qn-okr-prep.md`: the closeout above, the questions the
+> user needs answers to before they can set the next quarter's goals, and a reminder to paste the
+> cascaded unit and org OKRs in verbatim.
+>
+> End the file with one line: *"Run `/chief-of-staff:review --quarterly` to actually set them."*
+> Do not rewrite `goals.md`. Do not invent next quarter's goals.
+
+### cos-review-cycle-prep — one-off `fireAt`, six weeks before each window
+
+> Not a cron — the windows move. Create it as a one-off from the dates in
+> `<WORKSPACE>/memory/context/review-rubric.md`, and recreate it each cycle.
+>
+> Prepare for the performance review window for the workspace at `<WORKSPACE>`.
+>
+> Read `<WORKSPACE>/memory/context/review-rubric.md`. If it is missing or still unfilled, write a
+> file saying only that, and stop — a self-assessment mapped to invented categories argues
+> convincingly for the wrong things.
+>
+> Otherwise roll up every `<WORKSPACE>/ledger/` file since the last cycle and group the evidence
+> under the rubric's own category names, in the rubric's own wording. **Lead the output with the
+> rows that have no evidence behind them** — six weeks out, those are still fixable, and that is the
+> entire reason this runs early.
+>
+> Write to `<WORKSPACE>/reviews/<period>-rubric-gaps.md`. Draft only. Submit nothing anywhere.
 
 ## Test first
 
