@@ -41,6 +41,44 @@ boundary is — which is why every rule has to carry one.
 When a match is genuinely uncertain, surface the item and note the near-miss. False negatives are
 invisible; false positives are one line of noise.
 
+## Who was actually being talked to
+
+The most common way a brief loses trust in its first week: it reports a question someone asked
+*their own team* as though the user were being asked. Presence in a room is not being addressed.
+
+Before escalating anything from chat, one of these has to be true:
+
+- it's a **1:1 chat** with the user, or
+- it **@-mentions** them, or
+- it **names them** in the ask — "David, can you…", "waiting on Priya", or
+- they are the **only recipient** on the mail.
+
+A question in a group chat or channel is not directed at the user, **even when it is about a surface
+they own and even when they would have a strong opinion.** Most people in a group chat are talking
+to two other people in that group chat.
+
+The exception is deliberate and narrow: a **decision** about a surface the user owns escalates
+whether or not they were addressed — that's the "moving without me" rule, and it's the whole reason
+this tool exists. A **question** does not. If you can't tell which one you're looking at, it's a
+question.
+
+This is also why "they'd want to know" is not a reason to escalate. The user has colleagues who are
+paid to have opinions about their own work; the brief is not a feed of everything adjacent.
+
+## Announcements are not information
+
+Company-wide mail — all-hands, exec broadcasts, launches, rebrands, post-event roundups — is the
+*public* moment of something decided internally weeks earlier. The user almost always already knows.
+Reporting it as a finding makes the assistant look like it reads press releases.
+
+**Record it, don't surface it.** When an announcement changes a fact the tool depends on — a product
+name, an owner, a date, a team boundary — update `memory/glossary.md` or `CLAUDE.md` and say nothing.
+Escalate only when it *contradicts something the user is actively building*, and then lead with what
+breaks, not with what was announced.
+
+A renamed product is the clearest case: the rename is not news, but "every artifact in your active
+project now has the old name in its title" is.
+
 ## Observation, inference, recommendation
 
 Everything this plugin outputs is one of three things, and they must never be able to be mistaken
