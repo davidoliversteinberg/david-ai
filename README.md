@@ -46,6 +46,7 @@ your shorthand from your existing task list, and writes the rule files that ever
 | `/chief-of-staff:mentor` | Where the promotion case stands, what's thin, what to take or decline |
 | `/chief-of-staff:review` | Weekly: the record, then honest coaching |
 | `/chief-of-staff:inbox` | Rank inbox noise, recommend what to do about each sender |
+| `/chief-of-staff:tune` | Grade its own week and propose rule changes for you to apply |
 | `/chief-of-staff:automate` | Put all of it on a schedule |
 
 ## What's in it
