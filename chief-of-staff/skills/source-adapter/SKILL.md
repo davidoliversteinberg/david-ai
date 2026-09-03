@@ -36,7 +36,7 @@ second-guess it.
 | email | gmail | personal | |
 | chat | ms365 | work | Teams |
 | chat | slack | personal | side projects |
-| directory | opti | work | org tree only, no messages |
+| directory | internal-directory | work | org tree only, no messages |
 | tracker | atlassian | work | |
 ```
 
@@ -51,6 +51,7 @@ impact ledger quietly.
 | `gmail` | email | personal |
 | `google-calendar`, `gcal` | calendar | personal |
 | `slack` | chat | ask — could be either |
+| `imessage`, `messages` | chat | personal — **device-local**, see *Device-local sources* in CONNECTORS.md |
 | `atlassian`, `jira`, `linear`, `asana`, `monday`, `clickup` | tracker | work |
 | `notion`, `confluence`, `guru`, `coda` | docs | work |
 | `figma` | design | work |

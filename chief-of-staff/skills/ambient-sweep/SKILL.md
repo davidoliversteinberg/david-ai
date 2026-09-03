@@ -35,7 +35,7 @@ one degrades into noise within two weeks and gets muted, taking the useful entri
 user adds a place to watch without saying what they'd want out of it, ask that one question.
 
 A bar is usually easier to write as an exclusion. *"Release notes and permission changes — not
-outage reports, which are most of the volume"* is a better bar than *"important Opal news."*
+outage reports, which are most of the volume"* is a better bar than *"important platform news."*
 
 ## What a run does
 
@@ -143,6 +143,10 @@ Much of what this reads is written by people who don't know it's being read. Two
 - **Won't send, reply, react or join.** It reads. Everything outbound is a draft for the user.
 - **Won't watch a person.** It watches surfaces, projects and rooms. "What is X up to" is a
   different and worse product, and this refuses it.
+- **Won't read device-local personal messages.** iMessage and its equivalents are excluded from this
+  skill in `PROFILE.md` and should stay excluded. This one runs unattended on a schedule, and an
+  unattended reader of a source whose other participants never opted in is the wrong shape entirely.
+  On-demand skills may use it; see *Device-local sources* in [CONNECTORS.md](../../CONNECTORS.md).
 - **Won't read a room the user isn't a member of.** The connector wouldn't allow it, and the watch
   list should never imply otherwise.
 - **Won't manufacture a finding** to justify having run.

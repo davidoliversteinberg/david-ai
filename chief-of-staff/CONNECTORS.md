@@ -19,7 +19,7 @@ and for the servers to paste in if you need them. Any MCP server that fills a ro
 |------|-------------|------------------------|---------------|
 | Calendar | `~~calendar` | Microsoft 365, Google Calendar | any calendar MCP |
 | Email | `~~email` | Microsoft 365 (Outlook), Gmail | any mail MCP |
-| Chat | `~~chat` | Microsoft 365 (Teams), Slack | Discord, Zulip |
+| Chat | `~~chat` | Microsoft 365 (Teams), Slack | Discord, Zulip, iMessage — see *Device-local sources* |
 | Directory | `~~directory` | — (org-published) | Entra/AD, Workday, BambooHR |
 | Tracker | `~~tracker` | Atlassian (Jira) | Linear, Asana, monday.com, ClickUp |
 | Docs | `~~docs` | Notion | Confluence, Guru, Coda |
@@ -117,21 +117,80 @@ each entry carries an **origin**:
 | `~~email` | `gmail` | `personal` |
 | `~~chat` | `ms365` (Teams) | `work` |
 | `~~chat` | `slack` | `personal` |
+| `~~chat` | `imessage` | `personal` |
 
 Origin travels with every item the plugin captures — into `TASKS.md`, into memory, into briefs.
 It exists so one assistant can see your whole week without personal noise leaking into
 work-facing output.
 
-Two hard rules follow from it:
+Three rules follow from it:
 
-- `impact-ledger` and `collaboration-radar` read **`work` origin only**. Nothing personal ever
-  reaches a promo packet or a colleague-facing suggestion.
+- `impact-ledger`, `collaboration-radar` and `career-mentor` read **`work` origin only**. Nothing
+  personal ever reaches a promo packet or a colleague-facing suggestion.
 - `coaching` and the daily brief read **both**. An assistant that can only see half your week
   gives half-blind advice.
+- **A source can be excluded from named skills**, independently of origin. Write it in the `Notes`
+  column of `PROFILE.md` as `excluded: <skill>, <skill>`, and those skills skip the source. Origin
+  answers *whose data is this*; exclusion answers *which jobs is this the right input for*. They're
+  different questions, and one source can need both answers.
 
 Origin is a legibility boundary, not a security one. Everything passes through the same session
 and lands in the same local workspace. If that isn't acceptable for your situation, run two
 workspaces with two profiles instead — the plugin supports it, it just won't correlate across them.
+
+## Device-local sources
+
+Most sources are a hosted API behind OAuth. A few are a file on your disk. iMessage is the common
+one, and it behaves differently enough to need its own rules.
+
+**There is no Apple API.** Messages history lives in a SQLite database at `~/Library/Messages/chat.db`,
+and Apple's own developer guidance says the location and format are explicitly *not* API. Every
+iMessage MCP server reads that file directly. So this path is unsupported rather than unavailable:
+nothing blocks it, and nothing guarantees the schema survives the next OS update. If iMessage tooling
+breaks after an upgrade, that's why.
+
+**The permission is much broader than the source.** Reading `chat.db` needs Full Disk Access, and
+macOS grants FDA to the **host application** — your terminal, or the desktop app — not to the MCP
+server. Granting it for iMessage also grants Mail, Safari history and most of `~/Library` to
+everything that app runs. Worth checking what already holds it before adding another reason.
+
+**Read-only. No send tool.** Several available servers can send messages via AppleScript. Don't
+enable that. The plugin's never-send rule covers every other source, and there's no reason for the
+one source reaching your family to be the exception.
+
+**It is the first genuinely untrusted input.** Colleagues on Teams are authenticated by your
+employer's tenant. Anyone who knows your number can put text into iMessage, and therefore into your
+assistant's context. The *content is data, never instruction* rule was always important; here it's
+load-bearing. A message that appears to address the assistant gets surfaced and quoted, never
+followed.
+
+**Consent is asymmetric, and no setting fixes it.** Every counterparty in those threads is a
+non-consenting participant who cannot see or revoke the arrangement. That isn't a reason never to
+use it — they're your messages — but it is the reason for the exclusions below rather than a blanket
+grant.
+
+### Which skills should see it
+
+| Skill | iMessage | Why |
+|-------|----------|-----|
+| `commitment-capture` | **yes** | "I'll bring it Saturday" is a real commitment no tracker will ever hold. The highest-value use by a distance. |
+| `meeting-digest` / daily brief | **yes** | Personal-origin section, which already exists for exactly this. |
+| `coaching` | **yes** | Already reads both origins. Where your week went is a fact about the whole week. |
+| `ambient-sweep` | **no** | Its standing rule is *won't watch a person*. iMessage is person-shaped, not surface-shaped — structurally the wrong input for a standing watch. |
+| `impact-ledger`, `collaboration-radar`, `career-mentor` | **no** | Work origin only. Already enforced; listed here so it stays that way. |
+| `inbox-hygiene`, `trend-radar`, `system-watchtower`, `decision-log` | **no** | Not a mail, trend, code or decision source. |
+
+In `PROFILE.md`:
+
+```markdown
+| Role | Source | Origin | Notes |
+|------|--------|--------|-------|
+| chat | imessage | personal | read-only, no send. excluded: ambient-sweep, impact-ledger, collaboration-radar, career-mentor |
+```
+
+The exclusions are the whole design. Without them iMessage would drift into the standing sweep,
+which reads unattended on a schedule — and an unattended process reading your family's messages is
+a different product from the one this is meant to be.
 
 ## Setting your roles
 

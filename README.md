@@ -88,7 +88,7 @@ See [CONNECTORS.md](chief-of-staff/CONNECTORS.md) for the role table.
 ## Work and personal in one assistant
 
 A role holds a *list* of sources, each tagged `work` or `personal`. Outlook and Gmail both fill
-`~~email`; Teams and Slack both fill `~~chat`.
+`~~email`; Teams, Slack and iMessage all fill `~~chat`.
 
 Origin travels with every item. Briefs section by it so they stay scannable, but the coaching and
 the daily brief reason across both — an assistant that can only see half your week gives half-blind
@@ -100,6 +100,13 @@ reaches a promo packet or a message to a colleague.
 Origin is a legibility boundary, **not a security one** — everything passes through the same session
 and lands in the same local workspace. If that's not acceptable for your situation, run two
 workspaces with two profiles.
+
+Origin isn't the only axis. A source can also be **excluded from named skills** regardless of who it
+belongs to — because *whose data is this* and *which jobs is this the right input for* are different
+questions. iMessage is the worked example: useful for catching a commitment made over text, wrong as
+an input to a watch that runs unattended on a schedule. See *Device-local sources* in
+[CONNECTORS.md](chief-of-staff/CONNECTORS.md), which also covers why Full Disk Access is a broader
+grant than it looks and why the send tool stays off.
 
 ## What it will not do
 
