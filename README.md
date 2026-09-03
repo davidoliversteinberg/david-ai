@@ -47,9 +47,12 @@ your shorthand from your existing task list, and writes the rule files that ever
 
 ## What's in it
 
-**The spine.** `source-adapter` resolves roles to actual connectors and tags everything by origin.
-`work-memory` is a two-tier memory — a short hot cache plus a deeper store of people, projects and
-rules. `signal-filter` decides what reaches you.
+**The spine.** `source-adapter` resolves roles to actual connectors, decomposes them into checkable
+capabilities, and tags everything by origin. `work-memory` is a two-tier memory — a short hot cache
+plus a deeper store of people, projects and rules — split so that what's true about *you* can travel
+between machines and jobs while what's true about *this workspace* stays put. `signal-filter`
+decides what reaches you, and keeps observations, inferences and recommendations from being mistaken
+for each other.
 
 **Awareness.** `meeting-digest` summarizes meetings, chat and email into a ranked *Needs your
 attention* list. `commitment-capture` turns "I'll get you that by Thursday" into a task that
@@ -98,8 +101,18 @@ Two hard rules: **`impact-ledger` and `collaboration-radar` read work origin onl
 reaches a promo packet or a message to a colleague.
 
 Origin is a legibility boundary, **not a security one** — everything passes through the same session
-and lands in the same local workspace. If that's not acceptable for your situation, run two
-workspaces with two profiles.
+and lands in the same local workspace.
+
+So the first thing setup asks is **one workspace or two**, framed as a real choice rather than a
+preference. Two gives you a ledger that structurally cannot see a personal item; one gives you
+coaching that can see your whole week. Which is right depends on whether the boundary exists in your
+life — an employee with a managed laptop and a freelancer whose work *is* their life want opposite
+answers, and the command reads your situation and recommends rather than making you guess.
+
+Two workspaces don't mean learning twice. `memory/portable/` holds what's true about you — how you
+write, the craft principles you hold, what you're working toward — and is designed to be copied
+between them. It contains no work facts by construction, so you can read exactly what crosses. It's
+also what makes changing jobs cheap: keep that directory, archive the rest.
 
 Origin isn't the only axis. A source can also be **excluded from named skills** regardless of who it
 belongs to — because *whose data is this* and *which jobs is this the right input for* are different

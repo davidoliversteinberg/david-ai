@@ -103,14 +103,44 @@ One question, the one that produces the rationale. Not a form.
 
 If the user declines, drop it. A half-remembered decision file is worse than none.
 
-## Status
+## Status and supersession
 
 - `decided` — settled and in effect
-- `superseded` — replaced; link forward to the new file
+- `superseded` — replaced; the frontmatter links forward
 - `revisit` — the revisit condition fired
 
-Never delete a decision file. Supersede it. The history of how a decision changed is often more
-useful than the current state.
+Never delete or rewrite a decision file. **Supersede it**, with two frontmatter fields that make the
+chain walkable in both directions:
+
+```markdown
+# in the old file
+status: superseded
+superseded-by: 2026-11-14-density-spec-default-on.md
+
+# in the new file
+supersedes: 2026-09-01-density-spec-behind-flag.md
+```
+
+The new file then carries a section the original never had:
+
+```markdown
+## What changed since
+
+The October cutover lost on timing, and the timing no longer holds — two of the three teams have
+shipped and the third moved off the old spacing in their own refactor. The original argument was
+correct and its premise expired.
+```
+
+**That section is the point of the whole mechanism.** Anyone can see that a decision was reversed;
+the expensive question is whether it was reversed because someone learned something or because
+someone forgot the original reasoning. A superseding file that can't say what changed is a signal
+worth surfacing rather than writing — the decision may be getting re-litigated rather than revised.
+
+When you read a decision, **read the whole chain**, not the newest file. Answering "why is it like
+this" with only the current state loses the argument that produced it, which is the thing being
+asked for. Say how many revisions deep you're looking, and if the chain runs long — three or more on
+the same question — mention that too. Repeated reversal on one point usually means the real
+disagreement was never written down.
 
 ## Feeds
 

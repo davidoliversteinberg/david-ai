@@ -93,10 +93,29 @@ four kinds of thing are always worth surfacing:
 
 Everything else is recorded and not mentioned.
 
-## Silence is a result
+## Silence is a result — but only when it's earned
 
-**A run that surfaces nothing reports that it surfaced nothing, in one line, and stops.** It does
-not pad, does not summarise the week, does not list what it read to prove it was working.
+**Check the watch list before reporting silence.** A sweep with nothing to read and a sweep that
+read everything and found nothing are completely different outcomes that look identical in the
+output, and confusing them is the worst failure this skill has: it reports reassuring silence
+forever while being switched off.
+
+So the first thing a run does is count what it's about to read. If the watch list is empty, or has
+no tier-1 meetings, or every entry is missing a bar, **say that instead of running**:
+
+```
+Sweep 2026-09-08 — nothing to watch. The watch list has 0 channels and 0 tier-1
+meetings, so this found nothing because it looked nowhere, not because it was
+a quiet week. Add places in PROFILE.md under Watch list, or run setup again.
+```
+
+Partial configuration reports partially: read what's there, then name what isn't. Cross-check
+`## Gaps` in `PROFILE.md` and mention anything on it that would have changed this run — an
+unresolved channel ID is invisible in the output otherwise.
+
+**Once there is genuinely something to read, a run that surfaces nothing reports that it surfaced
+nothing, in one line, and stops.** It does not pad, does not summarise the week, does not list what
+it read to prove it was working.
 
 ```
 Sweep 2026-09-08 — nothing cleared the bar. Read 6 transcripts, 4 channels, 12 queries;

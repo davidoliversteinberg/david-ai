@@ -10,7 +10,12 @@ Two tiers, because a single growing file eventually costs more context than it s
 ```
 CLAUDE.md              hot cache — loads every session, ~50–100 lines
 memory/
-  glossary.md          terms, acronyms, product names
+  portable/            about YOU. survives a new machine and a new employer.
+    craft.md           principles you hold regardless of whose design system it is
+    shorthand.md       your own notation — how you write a task, not what the company calls things
+    voice.md           how you write, so drafts sound like you
+    career.md          the level you're aiming at and the shape of the campaign
+  glossary.md          terms, acronyms, product names — this company's, not yours
   people/<slug>.md     one per person you actually work with
   projects/<slug>.md   one per active surface
   context/             the rule files the skills read
@@ -20,6 +25,30 @@ memory/
     system-rules.md
     trend-sources.md
 ```
+
+## Portable memory vs workspace memory
+
+Everything under `memory/portable/` is **about the user**. Everything else is **about this
+workspace** — this job, this machine, these people.
+
+The test is one question: *would this still be true at a different company, on a different machine?*
+Your habit of never hardcoding a font size travels. This design system's type scale does not. The
+level you're aiming at travels. The evidence you've accumulated for it does not.
+
+This split is what makes the assistant compound instead of resetting. Someone running one install on
+a work machine and another on a personal one copies `memory/portable/` between them and gets a
+system that already knows how they write, what they care about and what they're working toward —
+without a single work fact crossing the boundary. Same move when changing jobs: keep `portable/`,
+archive the rest.
+
+**Nothing in this plugin syncs it.** That's deliberate — a tool that quietly copies your memory
+between machines is a tool you have to trust rather than inspect. Copy it yourself, or point a
+private repo or a synced folder at that one directory. It's small, it's plain markdown, and you can
+read the whole thing in a sitting.
+
+**When you're unsure, workspace is the safe default.** A work fact wrongly filed as portable follows
+the user to their next employer. A portable fact wrongly filed as workspace just gets rewritten
+later.
 
 ## What goes where
 

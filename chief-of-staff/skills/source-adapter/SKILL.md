@@ -52,7 +52,9 @@ impact ledger quietly.
 | `google-calendar`, `gcal` | calendar | personal |
 | `slack` | chat | ask — could be either |
 | `imessage`, `messages` | chat | personal — **device-local**, see *Device-local sources* in CONNECTORS.md |
-| `atlassian`, `jira`, `linear`, `asana`, `monday`, `clickup` | tracker | work |
+| `apple-mail` | email | personal — **device-local**, and usually a *mirror*; read the caution below |
+| `apple-calendar`, `ical`, `eventkit` | calendar | personal — **device-local**, and usually a *mirror* |
+| `atlassian`, `jira`, `linear`, `asana`, `monday`, `clickup`, `trello` | tracker | work |
 | `notion`, `confluence`, `guru`, `coda` | docs | work |
 | `figma` | design | work |
 | `git`, `gh`, `github`, `gitlab` | code | work |
@@ -60,6 +62,17 @@ impact ledger quietly.
 
 Slack is genuinely ambiguous — plenty of people have a work Slack *and* a personal one. If Slack is
 the only chat source and origin is unset, ask once and write the answer to `PROFILE.md`.
+
+**Apple Mail and Apple Calendar are aggregators, not accounts.** This breaks two assumptions at
+once. They display whatever accounts the Mac has configured — usually including the Gmail or
+iCloud account you may also have connected directly, so the same message arrives twice by two
+routes. And origin comes from the *account*, not the app: a work mailbox mirrored into Apple Mail is
+`work` origin no matter that it was read from a personal machine. If a source is a mirror, say so in
+the `Notes` column, name which accounts it carries, and dedupe against the direct connector — the
+direct one wins, because it carries better metadata.
+
+The clean setup is to pick one route per account rather than both. Connect Gmail directly *or* read
+it through Apple Mail, not each.
 
 **3. If a role has no source, skip it.** Don't fabricate, don't approximate, don't apologise at
 length. Say what you skipped in one line at the end of the output:
@@ -95,18 +108,51 @@ so degrade to the next tier rather than reporting an error.
 **Everything else.** Unverified. Treat as absent until probed, and record the answer in `PROFILE.md`
 so the next run doesn't re-probe.
 
-## Known capability limits
+## Capabilities
 
-Record verified answers in `PROFILE.md` under *Capabilities*. What's already known:
+A role says *a chat source exists*. It does not say whether that source can search channels, which
+is a different question with a different answer. Skills need the second one, so roles decompose into
+**capabilities** — named, checkable, and recorded per source.
+
+| Capability | What it means |
+|------------|---------------|
+| `calendar.events` | List meetings in a window |
+| `calendar.transcript` | Fetch a transcript for a meeting |
+| `mail.search` | Search a mailbox |
+| `mail.rules` | Read or edit rules and blocked senders |
+| `chat.list` | Enumerate the chats and channels you belong to |
+| `chat.search` | Search messages in chats and DMs |
+| `chat.channels` | Search **channels** — separate on purpose, see the date-filter trap below |
+| `tracker.search` | Find issues |
+| `tracker.write` | Comment, transition, assign |
+| `docs.search` | Search written material |
+| `design.files` | Read design files and recent activity |
+| `code.diff` | Read commits, diffs and pull requests |
+| `directory.tree` | Org structure and people lookup |
+| `*.send` | Send anything at all — **always off**, see below |
+
+`chat.channels` being its own capability rather than part of `chat.search` is the whole reason this
+table exists. On Microsoft 365 they're two different code paths with two different result sets, and
+a skill that assumes one gets the other silently returns nothing.
+
+**Record verified answers in `PROFILE.md` under *Capabilities*.** Probe once, write it down, don't
+re-probe every run. An unrecorded capability is *unknown*, not *absent* — say which one you mean.
+
+What's already known, verified against Microsoft 365 on 2026-09-02:
 
 | Capability | Source | Answer | Consequence |
 |------------|--------|--------|-------------|
-| Meeting transcripts | ms365 | **yes**, via the two-hop path above | `meeting-digest` runs at tier 1 |
-| Mail rules / blocked senders | ms365 | **no** — the resource URI whitelist has no rules scheme and no tool exposes them | `inbox-hygiene` is advisory for this source, permanently |
-| Sending mail or chat | ms365 | **no** — the connector exposes no send or draft tool | the plugin's never-send rule is enforced by the connector, not just by convention |
+| `calendar.transcript` | ms365 | **yes**, via the two-hop path above | `meeting-digest` runs at tier 1 |
+| `chat.channels` | ms365 | **yes, but only without a date filter** | filter by date yourself, after the call |
+| `mail.rules` | ms365 | **no** — the resource URI whitelist has no rules scheme and no tool exposes them | `inbox-hygiene` is advisory for this source, permanently |
+| `*.send` | ms365 | **no** — the connector exposes no send or draft tool | the plugin's never-send rule is enforced by the connector, not just by convention |
 
 That last row is worth stating plainly rather than treating as a gap. It means the guarantees in the
 README aren't only policy — for this source there is no code path to violate them.
+
+**`*.send` stays off even where a source offers it.** Some do: several iMessage servers can send via
+AppleScript, and Google's APIs will happily send mail. The plugin drafts and hands over. A capability
+being available is not a reason to enable it.
 
 ## Chat: the date-filter trap
 

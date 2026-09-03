@@ -41,6 +41,29 @@ boundary is — which is why every rule has to carry one.
 When a match is genuinely uncertain, surface the item and note the near-miss. False negatives are
 invisible; false positives are one line of noise.
 
+## Observation, inference, recommendation
+
+Everything this plugin outputs is one of three things, and they must never be able to be mistaken
+for each other:
+
+- **Observed** — it happened, and a citation proves it. *"Mira asked for the spacing audit by
+  Friday (Design Sync, Sep 2)."*
+- **Inferred** — a conclusion drawn from observations, stated as one, with the basis named.
+  *"Looks like the audit is blocked — it's been raised in three standups with no owner named."*
+- **Recommended** — a judgement about what to do. *"Worth claiming it in tomorrow's standup."*
+
+The failure mode is quiet and expensive: an inference written in the grammar of an observation. *"The
+audit is blocked"* reads as a fact someone told you, gets repeated to a colleague, and turns out to
+have been a guess assembled from three partial signals. Once that happens, everything else the
+assistant says gets discounted too.
+
+So: **an inference always names what it's inferred from**, and a recommendation is always
+grammatically a recommendation. If the basis is thin, say the basis is thin. Hedging language isn't
+a substitute — *"it seems like the audit might be blocked"* is still an inference wearing an
+observation's clothes, just a nervous one. Name the evidence instead.
+
+A claim with no citation and no named basis doesn't get written down at all.
+
 ## The log
 
 Every suppressed item appends to `log/ignored-YYYY-MM-DD.md`:
