@@ -36,7 +36,13 @@ Terms and acronyms that would otherwise get misread. Company-specific ones espec
 Things that are true across sessions and would change an answer if forgotten.
 
 - <e.g. "Ships behind a flag until GA in November">
+- **What this install can't see** is in `PROFILE.md` under **Gaps**. Read it before reporting that a
+  sweep found nothing — "found nothing" and "looked nowhere" are different results.
 
 ---
 
 *Deep memory: `memory/glossary.md`, `memory/people/`, `memory/projects/`, `memory/context/`*
+
+*Portable memory — about me, not this job: `memory/portable/{craft,voice,career,shorthand}.md`. These
+travel to another machine and another employer; everything else here stays with this workspace. Read
+`voice.md` before drafting anything in my words.*
