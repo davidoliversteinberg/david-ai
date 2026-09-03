@@ -1,6 +1,9 @@
-# david-ai
+# second-chair
 
 A chief-of-staff plugin for Claude, built for a **senior individual contributor**.
+
+*A second chair knows the case as well as first chair, prepares every argument, and never stands up
+to deliver one.*
 
 Most assistant tooling is shaped for managers: what does my team need, who's blocked, how's morale.
 That's a different job from being a staff-level IC, where the questions are *is a decision being made
@@ -14,7 +17,7 @@ doing anything outward-facing.
 ## Install
 
 ```bash
-/plugin marketplace add davidoliversteinberg/david-ai
+/plugin marketplace add davidoliversteinberg/second-chair
 /plugin install chief-of-staff
 ```
 
@@ -163,8 +166,8 @@ of a public repository cannot be switched to private. To get a private copy you 
 rather than fork:
 
 ```bash
-git clone --bare https://github.com/davidoliversteinberg/david-ai.git
-cd david-ai.git && git push --mirror https://github.com/<you>/<your-private-repo>.git
+git clone --bare https://github.com/davidoliversteinberg/second-chair.git
+cd second-chair.git && git push --mirror https://github.com/<you>/<your-private-repo>.git
 ```
 
 That copy is disconnected from this one: no upstream, no updates, no pull requests back.
