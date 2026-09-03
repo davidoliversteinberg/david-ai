@@ -143,6 +143,50 @@ This repository contains workflow instructions only — no company data, no pers
 Your workspace lives outside it and is gitignored several ways over. Everything the plugin gathers
 stays local to your machine and your connectors.
 
+### Two repositories, and don't fork this one
+
+There are two separate things, and confusing them is how private notes end up somewhere public.
+
+| | This repo | Your workspace |
+|---|---|---|
+| Holds | commands, skills, templates | `PROFILE.md`, briefs, ledger, notes on colleagues |
+| Contains data about your employer | never | that is its entire purpose |
+| Visibility | public | **private, always** |
+| You should | install from it | create it yourself |
+
+**You do not need to fork this repository.** Install it as a marketplace and you'll get updates;
+a fork just freezes you at today's version. Fork only if you intend to change the skills themselves
+and send the changes back.
+
+And if you were planning to fork it to make a private copy — **GitHub does not allow that.** A fork
+of a public repository cannot be switched to private. To get a private copy you have to duplicate
+rather than fork:
+
+```bash
+git clone --bare https://github.com/davidoliversteinberg/david-ai.git
+cd david-ai.git && git push --mirror https://github.com/<you>/<your-private-repo>.git
+```
+
+That copy is disconnected from this one: no upstream, no updates, no pull requests back.
+
+### Putting the workspace in a private repo
+
+Optional, and worth understanding before you do it. The workspace is plain markdown, so it version-
+controls cleanly, and a private repo buys you two things: a second machine can pull your accumulated
+memory instead of you copying files around, and a scheduled runner that isn't your laptop can read
+the profile it needs to do useful work.
+
+It also means your briefs, your impact ledger, and your written observations about named colleagues
+are on someone else's server. That is a materially different decision from installing a plugin, and
+at most employers it is a conversation to have before rather than after. Have it.
+
+If you do:
+
+- **A new private repo. Not a fork of this one, and never a directory inside it.**
+- Keep `memory/portable/` in it — that's the part worth having on both machines.
+- Consider leaving `memory/people/` out. Notes about colleagues are the most sensitive thing the
+  tool produces and the least useful to sync.
+
 ## Requirements
 
 Built for **Claude Cowork**, where the connectors and scheduled tasks live. The plugin schema is
